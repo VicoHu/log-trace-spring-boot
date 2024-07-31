@@ -2,7 +2,9 @@ package com.pig4cloud.trace.instrument.gateway;
 
 import com.pig4cloud.trace.Constants;
 import com.pig4cloud.trace.TraceContentFactory;
+import com.pig4cloud.trace.TraceLogProperties;
 import org.slf4j.MDC;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.core.Ordered;
@@ -20,8 +22,14 @@ import java.util.Map;
  * @author L.cm
  */
 public class TraceGatewayFilter implements GlobalFilter, Ordered {
+	private final TraceLogProperties traceLogProperties;
 
-	@Override
+    public TraceGatewayFilter(TraceLogProperties traceLogProperties) {
+        this.traceLogProperties = traceLogProperties;
+    }
+
+
+    @Override
 	public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
 		// 1. 传递 新的header
 		Map<String, String> copyOfContextMap = TraceContentFactory.assemblyTraceContentStatic();
@@ -36,7 +44,8 @@ public class TraceGatewayFilter implements GlobalFilter, Ordered {
 		String traceId = MDC.get(Constants.LEGACY_TRACE_ID_NAME);
 		// 3. 处理响应的 header traceId
 		HttpHeaders responseHeaders = response.getHeaders();
-		if (traceId != null) {
+		// 判断是否需要响应 traceId，如果需要且 traceId 不为空则在响应头中设置
+		if (traceLogProperties.isShowResponseHeaderTraceId() && traceId != null) {
 			responseHeaders.set(Constants.LEGACY_TRACE_ID_NAME, traceId);
 		}
 		return chain.filter(exchange.mutate().request(builder.build()).build());
