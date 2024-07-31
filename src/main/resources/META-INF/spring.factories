@@ -1,12 +1,12 @@
 # Auto Configuration
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-com.pig4cloud.trace.TraceAutoConfiguration,\
-com.pig4cloud.trace.instrument.servlet.TraceServletConfiguration,\
-com.pig4cloud.trace.instrument.reactive.TraceReactiveConfiguration,\
-com.pig4cloud.trace.instrument.gateway.TraceGatewayAutoConfiguration,\
-com.pig4cloud.trace.instrument.feign.TraceFeignClientAutoConfiguration,\
-com.pig4cloud.trace.instrument.resttemplate.TraceRestTemplateConfiguration
+com.vicohu.trace.TraceAutoConfiguration,\
+com.vicohu.trace.instrument.servlet.TraceServletConfiguration,\
+com.vicohu.trace.instrument.reactive.TraceReactiveConfiguration,\
+com.vicohu.trace.instrument.gateway.TraceGatewayAutoConfiguration,\
+com.vicohu.trace.instrument.feign.TraceFeignClientAutoConfiguration,\
+com.vicohu.trace.instrument.resttemplate.TraceRestTemplateConfiguration
 
 # Environment Post Processor
 org.springframework.boot.env.EnvironmentPostProcessor=\
-com.pig4cloud.trace.processor.TraceEnvironmentPostProcessor
+com.vicohu.trace.processor.TraceEnvironmentPostProcessor
