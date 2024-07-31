@@ -12,8 +12,13 @@ import java.util.Set;
  * @author <a href="mailto:yaoonlyi@gmail.com">purgeyao</a>
  * @since 1.0.0
  */
-@ConfigurationProperties(prefix = "spring.trace.log")
+@ConfigurationProperties(prefix = "spring.lite-trace.log")
 public class TraceLogProperties implements InitializingBean {
+
+	/**
+	 * 是否显示请求头中的traceId，默认为true
+	 */
+	private boolean showResponseHeaderTraceId = true;
 
 	/**
 	 * 日志格式顺序
@@ -26,6 +31,15 @@ public class TraceLogProperties implements InitializingBean {
 
 	public void setFormat(Set<String> format) {
 		this.format = format;
+	}
+
+	/**
+	 * 是否显示请求头中的traceId
+	 *
+	 * @return 是否显示请求头中的traceId
+	 */
+	public boolean isShowResponseHeaderTraceId() {
+		return this.showResponseHeaderTraceId;
 	}
 
 	/**
