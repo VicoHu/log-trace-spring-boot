@@ -32,9 +32,9 @@
 
 ```
 <dependency>
-  <groupId>com.pig4cloud.plugin</groupId>
+  <groupId>com.vicohu.plugin</groupId>
   <artifactId>log-trace-spring-boot3-starter</artifactId>
-  <version>3.2.0</version>
+  <version>1.0.0</version>
 </dependency>
 ```
 
