@@ -42,6 +42,10 @@ public class TraceLogProperties implements InitializingBean {
 		return this.showResponseHeaderTraceId;
 	}
 
+	public void setShowResponseHeaderTraceId(boolean showResponseHeaderTraceId) {
+		this.showResponseHeaderTraceId = showResponseHeaderTraceId;
+	}
+
 	/**
 	 * X-B3-TraceId,X-B3-ParentName
 	 * @throws Exception
