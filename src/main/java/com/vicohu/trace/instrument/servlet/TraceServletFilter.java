@@ -3,8 +3,8 @@ package com.vicohu.trace.instrument.servlet;
 import com.vicohu.trace.TraceContentFactory;
 import com.vicohu.trace.TraceLogProperties;
 import com.vicohu.trace.util.URLUtil;
-import jakarta.servlet.*;
-import jakarta.servlet.http.HttpServletRequest;
+import javax.servlet.*;
+import javax.servlet.http.HttpServletRequest;
 import org.slf4j.MDC;
 import org.springframework.util.StringUtils;
 
