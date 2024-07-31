@@ -4,3 +4,4 @@ com.vicohu.trace.instrument.reactive.TraceReactiveConfiguration
 com.vicohu.trace.instrument.gateway.TraceGatewayAutoConfiguration
 com.vicohu.trace.instrument.feign.TraceFeignClientAutoConfiguration
 com.vicohu.trace.instrument.resttemplate.TraceRestTemplateConfiguration
+com.vicohu.trace.MDCConfiguration
